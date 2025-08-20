@@ -32,7 +32,7 @@ class Program
             g = random.Next(30, 256);
             b = random.Next(30, 256);
             Vector2 mousePos = Raylib.GetMousePosition();
-            balls.Add(new Ball(mousePos.X, mousePos.Y, 20, new Color(r, g, b)));
+            balls.Add(new Ball(mousePos.X, mousePos.Y, 20, new Color(r, g, b), -200, (float)(random.NextDouble() * 10 - 5)));
         }
 
         foreach (var ball in balls)

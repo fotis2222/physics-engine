@@ -7,14 +7,14 @@ class Ball
     public float xVelocity, yVelocity = 0;
     public Color color;
 
-    public Ball(float x, float y, int radius, Color color)
+    public Ball(float x, float y, int radius, Color color, float yVelocity, float xVelocity)
     {
         this.x = x;
         this.y = y;
         this.radius = radius;
         this.color = color;
-        this.xVelocity = 0;
-        this.yVelocity = 0;
+        this.xVelocity = xVelocity;
+        this.yVelocity = yVelocity;
     }
 
     public void DoPhysicsStuff()
@@ -30,6 +30,21 @@ class Ball
         {
             y = Raylib.GetScreenHeight() - radius;
             yVelocity *= -0.4f;
+        }
+
+        xVelocity *= 0.99f;
+        x += xVelocity;
+
+        if (x + radius > Raylib.GetScreenWidth())
+        {
+            x = Raylib.GetScreenWidth() - radius;
+            xVelocity *= -1;
+        }
+
+        if (x - radius < 0)
+        {
+            x = radius;
+            xVelocity *= -1;
         }
     }
 
