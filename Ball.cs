@@ -29,7 +29,7 @@ class Ball
         if (y + radius > Raylib.GetScreenHeight())
         {
             y = Raylib.GetScreenHeight() - radius;
-            yVelocity *= -0.7f;
+            yVelocity *= -0.4f;
         }
     }
 
