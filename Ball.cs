@@ -6,8 +6,10 @@ class Ball
     public int radius;
     public float xVelocity, yVelocity = 0;
     public Color color;
+    private float g => gBool ? 980f : 0f;
+    public bool gBool = true;
 
-    public Ball(float x, float y, int radius, Color color, float yVelocity, float xVelocity)
+    public Ball(float x, float y, int radius, Color color, float yVelocity, float xVelocity, bool gBool)
     {
         this.x = x;
         this.y = y;
@@ -15,11 +17,11 @@ class Ball
         this.color = color;
         this.xVelocity = xVelocity;
         this.yVelocity = yVelocity;
+        this.gBool = gBool;
     }
 
     public void DoPhysicsStuff()
     {
-        float g = 980f;
         float dt = Raylib.GetFrameTime();
 
         // do the physics
